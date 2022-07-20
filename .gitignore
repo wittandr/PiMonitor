@@ -38,3 +38,10 @@ CMakeFiles/*
 
 # vscode files
 .vscode/*
+
+# vcpkg installs
+vcpkg_installed/*
+
+# protoc files
+protos/generated
+protoes/generated/*
