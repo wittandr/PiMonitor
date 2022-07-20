@@ -2,6 +2,9 @@ cmake_minimum_required(VERSION 3.1)
 set(CMAKE_CXX_STANDARD 20)
 project(PiMonitor VERSION 0.1.0)
 
+find_package(gRPC CONFIG REQUIRED)
+
+
 
 FILE(GLOB_RECURSE INCLUDE_SERVER ${CMAKE_SOURCE_DIR}/server/include/*)
 FILE(GLOB_RECURSE SOURCE_SERVER ${CMAKE_SOURCE_DIR}/server/src/*)
@@ -26,3 +29,6 @@ list(APPEND INCLUDE_LIST_CLIENT
 	
 target_include_directories(PiMonitorServer PUBLIC ${INCLUDE_LIST_SERVER})
 target_include_directories(PiMonitorClient PUBLIC ${INCLUDE_LIST_CLIENT})
+
+target_link_libraries(PiMonitorServer PRIVATE gRPC::grpc++)
+target_link_libraries(PiMonitorClient PRIVATE gRPC::grpc++)

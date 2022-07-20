@@ -33,6 +33,8 @@
 
 # cmake output
 build/*
+CMakeCache.txt
+CMakeFiles/*
 
 # vscode files
 .vscode/*
