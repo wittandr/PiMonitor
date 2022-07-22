@@ -3,6 +3,7 @@ cls
 echo [31mBootstrapping vcpkg, downloading and building dependencies ...[0m
 CMAKE -B build -S . -DCMAKE_TOOLCHAIN_FILE=vcpkg/scripts/buildsystems/vcpkg.cmake
 cd vcpkg
+bootstrap-vcpkg.bat
 vcpkg install
 cd ..
 echo [31mBootstrapping vcpkg, downloading and building dependencies complete.[0m
