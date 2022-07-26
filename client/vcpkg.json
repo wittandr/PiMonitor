@@ -1,0 +1,14 @@
+{
+	"name": "pimonitor",
+	"version-string": "0.1.0",
+	"dependencies": [
+		{
+			"name": "grpc",
+			"platform": "arm"
+		},
+		{
+			"name": "grpc",
+			"platform": "windows"
+		}
+	]
+}

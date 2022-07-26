@@ -32,9 +32,9 @@
 *.app
 
 # cmake output
-build/*
-CMakeCache.txt
-CMakeFiles/*
+client/build/*
+client/CMakeCache.txt
+client/CMakeFiles/*
 
 # vscode files
 .vscode/*
@@ -44,4 +44,3 @@ vcpkg_installed/*
 
 # protoc files
 protos/generated
-protoes/generated/*
