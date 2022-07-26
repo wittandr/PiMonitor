@@ -1,14 +1,13 @@
 syntax = "proto3";
 
-message Ping {
-    string message = 1;
-    float delaySeconds = 2;
+service PingService {
+  rpc Ping (PingRequest) returns (PingResponse);
 }
 
-message Pong {
-    string message = 1;
+message PingRequest {
+  int32 id = 1;
 }
 
-service PingPong {
-    rpc SendPing(Ping) returns (Pong) {}
+message PingResponse {
+  int32 id = 1;
 }

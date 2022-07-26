@@ -8,8 +8,8 @@ using grpc::Status;
 
 class ClientImpl {
 public:
-	ClientImpl(std::shared_ptr<Channel> channel) : stub_(PingPong::NewStub(channel)) {}
-	std::string SendPing(const std::string& user);
+	ClientImpl(std::shared_ptr<Channel> channel) : stub_(PingService::NewStub(channel)) {}
+	void send_ping();
 private:
-	std::unique_ptr<PingPong::Stub> stub_;
+	std::unique_ptr<PingService::Stub> stub_;
 };

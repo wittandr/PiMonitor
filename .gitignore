@@ -44,3 +44,7 @@ vcpkg_installed/*
 
 # protoc files
 protos/generated
+
+# pycharm
+server/.idea
+server/__pycache__
