@@ -4,16 +4,21 @@
 from concurrent import futures
 import logging
 import datetime
-
 import grpc
 import ping_pb2, ping_pb2_grpc
 
 
 class PingService(ping_pb2_grpc.PingServiceServicer):
 
+    def __init__(self, data_subject):
+        super(ping_pb2_grpc.PingServiceServicer, self).__init__()
+        self.data_subject = data_subject
+
     def Ping(self, request, context):
         now = datetime.datetime.now()
         date_time = now.strftime("%m/%d/%Y, %H:%M:%S")
         print("Ping request at: ", date_time)
+        self.data_subject.latency = date_time
+        self.data_subject.state = 1
         return ping_pb2.PingResponse(id=request.id)
 

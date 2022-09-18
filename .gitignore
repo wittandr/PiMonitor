@@ -44,6 +44,8 @@ vcpkg_installed/*
 
 # protoc files
 protos/generated
+server/*pb2.py
+server/*pb2_grpc.py
 
 # pycharm
 server/.idea

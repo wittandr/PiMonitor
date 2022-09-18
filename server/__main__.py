@@ -1,6 +1,10 @@
 # __main__.py
 
-from app import Server
+from PyQt5 import QtWidgets
+from mainapplication import MainApplication
+import sys
 
 if __name__ == '__main__':
-    Server.run()
+    app = QtWidgets.QApplication(sys.argv)
+    window = MainApplication()
+    app.exec_()
