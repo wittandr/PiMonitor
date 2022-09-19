@@ -1,0 +1,13 @@
+[Unit]
+Description=PiMonitor Service
+After=multi-user.target
+
+[Service]
+Environment=DISPLAY=:0
+WorkingDirectory=/home/pi/PiMonitor/server
+User=pi
+Type=idle
+ExecStart=/usr/bin/python3 /home/pi/PiMonitor/server/__main__.py > /home/pi/PiMonitor/server.log 2>&1
+
+[Install]
+WantedBy=graphical.target
