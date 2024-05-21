@@ -11,9 +11,10 @@ class MainApplication(QtWidgets.QMainWindow):
 
     def worker(self):
         while True:
-            if self.data_subject.state == 1:
-                self.lblStatus.setText("Ping received: " + self.data_subject.latency)
-                self.data_subject.state = 0
+            self.lblStatus.setText("Ping received: " + str(self.data_subject.latency))
+            self.lcdCPUTemp.display(self.data_subject.cputemp)
+            self.lcdGPUTemp.display(self.data_subject.gputemp)
+            self.data_subject.state = 0
             time.sleep(1)
 
     def __init__(self):

@@ -13,3 +13,11 @@ public:
 private:
 	std::unique_ptr<PingService::Stub> stub_;
 };
+
+class DataImpl {
+public:
+	DataImpl(std::shared_ptr<Channel> channel) : stub_(DataService::NewStub(channel)) {}
+	void send_data();
+private:
+	std::unique_ptr<DataService::Stub> stub_;
+};

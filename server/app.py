@@ -1,7 +1,7 @@
 # app.py
 
 from concurrent import futures
-from grpc_impl import PingService
+from grpc_impl import PingService, DataService
 from typing import List
 import grpc
 import ping_pb2_grpc
@@ -48,6 +48,7 @@ class Server:
     def run(self):
         server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
         ping_pb2_grpc.add_PingServiceServicer_to_server(PingService(self.data_subject), server)
+        ping_pb2_grpc.add_DataServiceServicer_to_server(DataService(self.data_subject), server)
         server.add_insecure_port('[::]:50051')
         print(server)
         server.start()

@@ -19,6 +19,20 @@ class PingService(ping_pb2_grpc.PingServiceServicer):
         date_time = now.strftime("%m/%d/%Y, %H:%M:%S")
         print("Ping request at: ", date_time)
         self.data_subject.latency = date_time
-        self.data_subject.state = 1
         return ping_pb2.PingResponse(id=request.id)
+
+
+class DataService(ping_pb2_grpc.DataServiceServicer):
+
+    def __init__(self, data_subject):
+        super(ping_pb2_grpc.DataServiceServicer, self).__init__()
+        self.data_subject = data_subject
+
+    def DataTransfer(self, request, context):
+        if request.type == "cputemp":
+            self.data_subject.cputemp = request.temp
+        elif request.type == "gputemp":
+            self.data_subject.gputemp = request.temp
+        return ping_pb2.DataResponse(status="received")
+
 
